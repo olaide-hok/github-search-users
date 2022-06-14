@@ -50,27 +50,6 @@ const Repos = () => {
   stars = Object.values(stars).slice(-5).reverse()
   forks = Object.values(forks).slice(-5).reverse()
 
-
-  console.log(stars);
-  console.log(forks);
-
-
-  // Chart Data
-  const chartData = [
-    {
-      label: "HTML",
-      value: "140",
-    },
-    {
-      label: "CSS",
-      value: "115",
-    },
-    {
-      label: "Javascript",
-      value: "100",
-    },
-  ];
-
   return (
     <section className="section">
       <Wrapper className="section-center">
