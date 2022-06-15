@@ -4,6 +4,21 @@ import mockRepos from "./mockData.js/mockRepos";
 import mockFollowers from "./mockData.js/mockFollowers";
 import axios from "axios";
 
+import AuthKeycloakService from "../AuthService/AuthKeycloak"
+
+
+const configure = () => {
+  axios.interceptors.request.use((config) => {
+    if (AuthKeycloakService.isLoggedIn()) {
+      const cb = () => {
+        config.headers.Authorization = `Bearer ${AuthKeycloakService.getToken()}`;
+        return Promise.resolve(config);
+      };
+      return AuthKeycloakService.updateToken(cb);
+    }
+  });
+};
+
 const rootUrl = "https://api.github.com";
 
 const GithubContext = React.createContext();
@@ -94,4 +109,4 @@ const GithubProvider = ({ children }) => {
   );
 };
 
-export { GithubProvider, GithubContext };
+export { GithubProvider, GithubContext, configure };
