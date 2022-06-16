@@ -14,11 +14,12 @@ const PrivateRoute = ({children}) => {
   // return AuthKeycloakService.isLoggedIn() ? children : null
   // <Navigate to='/login' />
 
-  if (isLoggedIn()) {
-    // return <Navigate to='/login' />
-    return children
+  if (!isLoggedIn()) {
+    return <Navigate to='/login' />
+    // return children
   }
-  return null
+  // return null
+  return children
   
 
 };

@@ -1,18 +1,18 @@
 import React from "react";
-import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from "./pages";
+import { Dashboard, Login, PrivateRoute, Error } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PublicRoute from "./pages/PublicRoute";
 
 function App() {
   return (
     <Router>
-      <Routes>        
+      <Routes>       
         <Route
           path="/"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Dashboard />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         />
         <Route
