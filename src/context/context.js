@@ -6,15 +6,15 @@ import axios from "axios";
 
 import AuthKeycloakService from "../AuthService/AuthKeycloak"
 
-
+const _axios = axios.create();
 const configure = () => {
-  axios.interceptors.request.use((config) => {
+  _axios.interceptors.request.use((config) => {
     if (AuthKeycloakService.isLoggedIn()) {
-      const cb = () => {
+      const callback = () => {
         config.headers.Authorization = `Bearer ${AuthKeycloakService.getToken()}`;
         return Promise.resolve(config);
       };
-      return AuthKeycloakService.updateToken(cb);
+      return AuthKeycloakService.updateToken(callback);
     }
   });
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import loadingGif from '../images/preloader.gif';
 import styled from 'styled-components';
-function AuthWrapper() {
-  return <h2>authwrapper component</h2>;
+function AuthWrapper({ children }) {
+  return <>{children}</>;
 }
 
 const Wrapper = styled.section`

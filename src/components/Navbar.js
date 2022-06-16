@@ -1,8 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import AuthKeycloakService from '../AuthService/AuthKeycloak'
+
 
 const Navbar = () => {
-  return <Wrapper>navbar component</Wrapper>;
+  const { isLoggedIn, doLogin, doLogout, getUsername, kc } = AuthKeycloakService
+  
+  const { authenticated, logout, login} = kc
+  console.log({ authenticated });
+  return <Wrapper>
+    {authenticated &&
+    <h4>
+      Welcome, <strong>{getUsername()}</strong>
+    </h4> }
+    {authenticated ? <button onClick={() => doLogout({returnTo:window.location.origin})} >logout</button>
+    : <button onClick={() => doLogin()}>login</button>
+  }
+  </Wrapper>;
 };
 
 const Wrapper = styled.nav`
