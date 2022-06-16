@@ -5,15 +5,16 @@ import AuthKeycloakService from '../AuthService/AuthKeycloak'
 
 const Navbar = () => {
   const { isLoggedIn, doLogin, doLogout, getUsername, kc } = AuthKeycloakService
+  // {redirectUri: 'http://localhost:3000/login'}
   
   const { authenticated, logout, login} = kc
-  console.log({ authenticated });
+  // console.log({ authenticated });
   return <Wrapper>
     {authenticated &&
     <h4>
       Welcome, <strong>{getUsername()}</strong>
     </h4> }
-    {authenticated ? <button onClick={() => doLogout({redirectUri: 'http://localhost:3000/login'})} >logout</button>
+    {authenticated ? <button onClick={() => doLogout()} >logout</button>
     : <button onClick={() => doLogin()}>login</button>
   }
   </Wrapper>;

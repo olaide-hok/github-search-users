@@ -5,8 +5,8 @@ import AuthKeycloakService from '../AuthService/AuthKeycloak'
 const {  isLoggedIn, kc } = AuthKeycloakService
 const { authenticated } = kc
 const user = isLoggedIn() && authenticated
-console.log(authenticated)
-console.log(user);
+// console.log(authenticated)
+// console.log(user);
 
 
 const PrivateRoute = ({children}) => {
