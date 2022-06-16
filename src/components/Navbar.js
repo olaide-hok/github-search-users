@@ -13,7 +13,7 @@ const Navbar = () => {
     <h4>
       Welcome, <strong>{getUsername()}</strong>
     </h4> }
-    {authenticated ? <button onClick={() => doLogout({returnTo:window.location.origin})} >logout</button>
+    {authenticated ? <button onClick={() => doLogout({redirectUri: 'http://localhost:3000/login'})} >logout</button>
     : <button onClick={() => doLogin()}>login</button>
   }
   </Wrapper>;

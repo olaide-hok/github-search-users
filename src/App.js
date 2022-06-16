@@ -5,15 +5,14 @@ import PublicRoute from "./pages/PublicRoute";
 
 function App() {
   return (
-    // <AuthWrapper>
     <Router>
       <Routes>        
         <Route
           path="/"
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
               <Dashboard />
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
         <Route
@@ -27,7 +26,6 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>
-    // </AuthWrapper>
   );
 }
 

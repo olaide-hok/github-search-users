@@ -2,26 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import loginImg from "../images/login-img.svg";
 import AuthKeycloakService from "../AuthService/AuthKeycloak";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { isLoggedIn, doLogin, kc } = AuthKeycloakService;
-  const { login } = kc;
-  // console.log(kc);
-
-  const navigate = useNavigate();
-  const logIn = () => {
-    doLogin();
-    navigate("/");
-  };
+  const { doLogin, kc } = AuthKeycloakService;
+  // {redirectUri: 'http://localhost:3000'}
+  const {authenticated} = kc
+  console.log(authenticated);
 
   return (
     <Wrapper>
       <div className="container">
-        <h1>Hello Anonymous!</h1>
-        <p>Please authenticate yourself!</p>
+        <h1>Hello And Welcome to github users.</h1>
         <img src={loginImg} alt="github user" />
-        <h1>github user</h1>
+        <h4>Please authenticate yourself!</h4>
         <button className="btn" onClick={() => doLogin()}>
           login / sign up
         </button>

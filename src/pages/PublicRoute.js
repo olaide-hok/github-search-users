@@ -6,7 +6,7 @@ import AuthKeycloakService from '../AuthService/AuthKeycloak'
 //   const { authenticated } = kc
 //   console.log(authenticated);
 const PublicRoute = ({children}) => {
-    return !AuthKeycloakService.isLoggedIn() ? children : null
+    // return !AuthKeycloakService.isLoggedIn() ? children : null
   
 };
 export default PublicRoute;

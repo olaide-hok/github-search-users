@@ -8,7 +8,7 @@ const Dashboard = () => {
     return <main>
        <Navbar></Navbar>
       <Search />
-      <img src={loadingImage} className="loading-img" alt='loading image' />
+      <img src={loadingImage} className="loading-img" alt='loading icon' />
     </main>
   }
   return (
